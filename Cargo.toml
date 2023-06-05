@@ -1,0 +1,13 @@
+[package]
+name = "hello-egui"
+version = "0.1.0"
+authors = ["Valeriy V. Vorotyntsev <valery.vv@gmail.com>"]
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+eframe = { path = "../../src/egui/crates/eframe" }
+#XXX egui = { version = "0.22.0", path = "../egui", features = [ "extra_debug_asserts" ] }
+egui_demo_lib = { path = "../../src/egui/crates/egui_demo_lib" }
+tracing-subscriber = "0.3"
