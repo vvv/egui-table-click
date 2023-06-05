@@ -1060,6 +1060,7 @@ version = "0.1.0"
 dependencies = [
  "eframe",
  "egui_demo_lib",
+ "egui_extras",
  "tracing-subscriber",
 ]
 
