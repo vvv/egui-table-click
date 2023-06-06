@@ -2,7 +2,10 @@ use eframe::egui;
 
 #[derive(Debug)]
 pub struct HelloApp {
+    /// Total number of rows in the table.
     num_rows: usize,
+    /// Index of the selected row, if any.
+    selected_row: Option<usize>,
 }
 
 impl HelloApp {
@@ -11,7 +14,10 @@ impl HelloApp {
         // <https://github.com/emilk/eframe_template/blob/4f613f5d6266f0f0888544df4555e6bc77a5d079/src/app.rs#L29-L33> and
         // <https://github.com/emilk/eframe_template/blob/4f613f5d6266f0f0888544df4555e6bc77a5d079/src/app.rs#L40-L43>.
 
-        Self { num_rows: 1000 }
+        Self {
+            num_rows: 10_000,
+            selected_row: None,
+        }
     }
 }
 
@@ -40,6 +46,7 @@ impl eframe::App for HelloApp {
 
 impl HelloApp {
     fn table_ui(&mut self, ui: &mut egui::Ui) {
+        use egui::{Color32, Label, RichText, Sense};
         use egui_extras::{Column, TableBuilder};
 
         let row_height = ui.text_style_height(&egui::TextStyle::Body);
@@ -62,17 +69,42 @@ impl HelloApp {
             })
             .body(|body| {
                 body.rows(row_height, self.num_rows, |row_idx, mut row| {
-                    row.col(|ui| {
-                        ui.label(row_idx.to_string());
+                    let (_rect, response) = row.col_sense(Sense::click(), |ui| {
+                        let text = row_idx.to_string();
+                        if self.selected_row.map_or(false, |selected| selected == row_idx) {
+                            ui.label(RichText::new(text).background_color(Color32::LIGHT_BLUE));
+                        } else {
+                            ui.label(text);
+                        }
                     });
-                    row.col(|ui| {
-                        ui.add(
-                            egui::Label::new("Thousands of rows of even height").wrap(false),
-                        );
+                    if response.clicked() {
+                        self.selected_row = Some(row_idx);
+                    }
+
+                    let (_rect, response) = row.col_sense(Sense::click(), |ui| {
+                        let text = RichText::new("Thousands of rows of even height");
+                        let text = if self.selected_row.map_or(false, |selected| selected == row_idx) {
+                            text.background_color(Color32::LIGHT_BLUE)
+                        } else {
+                            text
+                        };
+                        ui.add(Label::new(text).wrap(false));
                     });
-                    row.col(|ui| {
-                        ui.label(format!("Row {row_idx} has some long text that you may want to clip, or it will take up too much horizontal space"));
+                    if response.clicked() {
+                        self.selected_row = Some(row_idx);
+                    }
+
+                    let (_rect, response) = row.col_sense(Sense::click(), |ui| {
+                        let text = format!("Row {row_idx} has some long text that you may want to clip, or it will take up too much horizontal space");
+                        if self.selected_row.map_or(false, |selected| selected == row_idx) {
+                            ui.label(RichText::new(text).background_color(Color32::LIGHT_BLUE));
+                        } else {
+                            ui.label(text);
+                        }
                     });
+                    if response.clicked() {
+                        self.selected_row = Some(row_idx);
+                    }
                 });
             });
     }

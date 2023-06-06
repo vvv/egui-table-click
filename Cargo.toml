@@ -8,7 +8,6 @@ edition = "2021"
 
 [dependencies]
 eframe = { path = "../../src/egui/crates/eframe" }
-#XXX egui = { version = "0.22.0", path = "../egui", features = [ "extra_debug_asserts" ] }
 egui_demo_lib = { path = "../../src/egui/crates/egui_demo_lib" }
 egui_extras = { path = "../../src/egui/crates/egui_extras" }
 tracing-subscriber = "0.3"
