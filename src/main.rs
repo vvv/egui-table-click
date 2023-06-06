@@ -4,7 +4,7 @@ fn main() -> eframe::Result<()> {
     tracing_subscriber::fmt::init();
 
     eframe::run_native(
-        "hello-egui",
+        "egui-table-click",
         eframe::NativeOptions::default(),
         Box::new(|cc| Box::new(egui_table_click::HelloApp::new(cc))),
     )

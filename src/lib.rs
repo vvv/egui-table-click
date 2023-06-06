@@ -71,7 +71,7 @@ impl HelloApp {
                 body.rows(row_height, self.num_rows, |row_idx, mut row| {
                     let (_rect, response) = row.col_sense(Sense::click(), |ui| {
                         let text = row_idx.to_string();
-                        if self.selected_row.map_or(false, |selected| selected == row_idx) {
+                        if self.selected_row == Some(row_idx) {
                             ui.label(RichText::new(text).background_color(Color32::LIGHT_BLUE));
                         } else {
                             ui.label(text);
@@ -83,7 +83,7 @@ impl HelloApp {
 
                     let (_rect, response) = row.col_sense(Sense::click(), |ui| {
                         let text = RichText::new("Thousands of rows of even height");
-                        let text = if self.selected_row.map_or(false, |selected| selected == row_idx) {
+                        let text = if self.selected_row == Some(row_idx) {
                             text.background_color(Color32::LIGHT_BLUE)
                         } else {
                             text
@@ -96,7 +96,7 @@ impl HelloApp {
 
                     let (_rect, response) = row.col_sense(Sense::click(), |ui| {
                         let text = format!("Row {row_idx} has some long text that you may want to clip, or it will take up too much horizontal space");
-                        if self.selected_row.map_or(false, |selected| selected == row_idx) {
+                        if self.selected_row == Some(row_idx) {
                             ui.label(RichText::new(text).background_color(Color32::LIGHT_BLUE));
                         } else {
                             ui.label(text);
