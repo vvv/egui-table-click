@@ -6,6 +6,6 @@ fn main() -> eframe::Result<()> {
     eframe::run_native(
         "hello-egui",
         eframe::NativeOptions::default(),
-        Box::new(|cc| Box::new(hello_egui::HelloApp::new(cc))),
+        Box::new(|cc| Box::new(egui_table_click::HelloApp::new(cc))),
     )
 }

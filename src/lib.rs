@@ -32,7 +32,7 @@ impl eframe::App for HelloApp {
         // <https://github.com/emilk/eframe_template/blob/4f613f5d6266f0f0888544df4555e6bc77a5d079/src/app.rs#L55-L65>
 
         egui::CentralPanel::default().show(ctx, |ui| {
-            ui.heading("XXX-hello-egui-table");
+            ui.heading("egui table click demo");
             egui::warn_if_debug_build(ui);
 
             ui.separator();
