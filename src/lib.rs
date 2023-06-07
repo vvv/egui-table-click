@@ -95,12 +95,13 @@ impl HelloApp {
                     }
 
                     let (_rect, response) = row.col_sense(Sense::click(), |ui| {
-                        let text = format!("Row {row_idx} has some long text that you may want to clip, or it will take up too much horizontal space");
-                        if self.selected_row == Some(row_idx) {
-                            ui.label(RichText::new(text).background_color(Color32::LIGHT_BLUE));
+                        let text = RichText::new(format!("Row {row_idx} has some long text that you may want to clip, or it will take up too much horizontal space"));
+                        let text = if self.selected_row == Some(row_idx) {
+                            text.background_color(Color32::LIGHT_BLUE)
                         } else {
-                            ui.label(text);
-                        }
+                            text
+                        };
+                        ui.add(Label::new(text).wrap(false));
                     });
                     if response.clicked() {
                         self.selected_row = Some(row_idx);
