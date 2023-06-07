@@ -11,4 +11,4 @@
 
 ## 📺 Demo
 
-https://github.com/vvv/egui-table-click/assets/17462/29d866ff-0cfc-450c-ba0f-7b678c5b1cb6
+https://github.com/vvv/egui-table-click/assets/17462/c9f805ea-40d2-4e4c-ab2b-2b0900bc6c27
