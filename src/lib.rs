@@ -52,6 +52,7 @@ impl HelloApp {
         use egui::{Color32, Label, RichText, Sense};
         use egui_extras::{Column, TableBuilder};
 
+        let (mut hovered_rect, mut hovered_response) = (None, None);
         let row_height = ui.text_style_height(&egui::TextStyle::Body);
         TableBuilder::new(ui)
             .striped(true)
@@ -99,6 +100,10 @@ impl HelloApp {
                     if response.clicked() {
                         self.selected_row = Some(row_idx);
                     }
+                    if response.hovered() {
+                        hovered_rect = Some(response.rect); // XXX
+                        hovered_response = Some(response); // XXX
+                    }
 
                     // Add `Value` cell.
                     let (_rect, response) = row.col_sense(Sense::click(), |ui| {
@@ -115,5 +120,17 @@ impl HelloApp {
                     }
                 });
             });
+
+        if let Some(rect) = hovered_rect {
+            if ui.is_rect_visible(rect) {
+                let visuals = ui.style().interact(&hovered_response.unwrap());
+
+                let fill = visuals.weak_bg_fill;
+                let stroke = visuals.bg_stroke;
+                let rounding = visuals.rounding;
+                ui.painter()
+                    .rect(rect.expand(visuals.expansion), rounding, fill, stroke);
+            }
+        }
     }
 }
