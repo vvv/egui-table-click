@@ -667,7 +667,6 @@ checksum = "9ea835d29036a4087793836fa931b08837ad5e957da9e23886b29586fb9b6650"
 [[package]]
 name = "ecolor"
 version = "0.22.0"
-source = "git+https://github.com/vvv/egui.git?branch=table-row-col-sense#ca902317ff557f75680badb86bdd61a83adc83a8"
 dependencies = [
  "bytemuck",
 ]
@@ -675,7 +674,6 @@ dependencies = [
 [[package]]
 name = "eframe"
 version = "0.22.0"
-source = "git+https://github.com/vvv/egui.git?branch=table-row-col-sense#ca902317ff557f75680badb86bdd61a83adc83a8"
 dependencies = [
  "bytemuck",
  "cocoa",
@@ -702,7 +700,6 @@ dependencies = [
 [[package]]
 name = "egui"
 version = "0.22.0"
-source = "git+https://github.com/vvv/egui.git?branch=table-row-col-sense#ca902317ff557f75680badb86bdd61a83adc83a8"
 dependencies = [
  "accesskit",
  "ahash",
@@ -724,7 +721,6 @@ dependencies = [
 [[package]]
 name = "egui-winit"
 version = "0.22.0"
-source = "git+https://github.com/vvv/egui.git?branch=table-row-col-sense#ca902317ff557f75680badb86bdd61a83adc83a8"
 dependencies = [
  "accesskit_winit",
  "arboard",
@@ -740,7 +736,6 @@ dependencies = [
 [[package]]
 name = "egui_demo_lib"
 version = "0.22.0"
-source = "git+https://github.com/vvv/egui.git?branch=table-row-col-sense#ca902317ff557f75680badb86bdd61a83adc83a8"
 dependencies = [
  "egui",
  "egui_extras",
@@ -752,7 +747,6 @@ dependencies = [
 [[package]]
 name = "egui_extras"
 version = "0.22.0"
-source = "git+https://github.com/vvv/egui.git?branch=table-row-col-sense#ca902317ff557f75680badb86bdd61a83adc83a8"
 dependencies = [
  "egui",
  "serde",
@@ -761,7 +755,6 @@ dependencies = [
 [[package]]
 name = "egui_glow"
 version = "0.22.0"
-source = "git+https://github.com/vvv/egui.git?branch=table-row-col-sense#ca902317ff557f75680badb86bdd61a83adc83a8"
 dependencies = [
  "bytemuck",
  "egui",
@@ -775,7 +768,6 @@ dependencies = [
 [[package]]
 name = "emath"
 version = "0.22.0"
-source = "git+https://github.com/vvv/egui.git?branch=table-row-col-sense#ca902317ff557f75680badb86bdd61a83adc83a8"
 dependencies = [
  "bytemuck",
 ]
@@ -825,7 +817,6 @@ dependencies = [
 [[package]]
 name = "epaint"
 version = "0.22.0"
-source = "git+https://github.com/vvv/egui.git?branch=table-row-col-sense#ca902317ff557f75680badb86bdd61a83adc83a8"
 dependencies = [
  "ab_glyph",
  "ahash",
