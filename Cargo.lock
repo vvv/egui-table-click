@@ -667,7 +667,7 @@ checksum = "9ea835d29036a4087793836fa931b08837ad5e957da9e23886b29586fb9b6650"
 [[package]]
 name = "ecolor"
 version = "0.22.0"
-source = "git+https://github.com/vvv/egui.git?branch=table-row-col-sense#ca902317ff557f75680badb86bdd61a83adc83a8"
+source = "git+https://github.com/vvv/egui?branch=table-row-select-and-frame#a520c38b229c0cc4940b47a3d6dd47ead0dc9613"
 dependencies = [
  "bytemuck",
 ]
@@ -675,7 +675,7 @@ dependencies = [
 [[package]]
 name = "eframe"
 version = "0.22.0"
-source = "git+https://github.com/vvv/egui.git?branch=table-row-col-sense#ca902317ff557f75680badb86bdd61a83adc83a8"
+source = "git+https://github.com/vvv/egui?branch=table-row-select-and-frame#a520c38b229c0cc4940b47a3d6dd47ead0dc9613"
 dependencies = [
  "bytemuck",
  "cocoa",
@@ -691,6 +691,7 @@ dependencies = [
  "objc",
  "percent-encoding",
  "raw-window-handle",
+ "static_assertions",
  "thiserror",
  "wasm-bindgen",
  "wasm-bindgen-futures",
@@ -702,7 +703,7 @@ dependencies = [
 [[package]]
 name = "egui"
 version = "0.22.0"
-source = "git+https://github.com/vvv/egui.git?branch=table-row-col-sense#ca902317ff557f75680badb86bdd61a83adc83a8"
+source = "git+https://github.com/vvv/egui?branch=table-row-select-and-frame#a520c38b229c0cc4940b47a3d6dd47ead0dc9613"
 dependencies = [
  "accesskit",
  "ahash",
@@ -716,7 +717,6 @@ name = "egui-table-click"
 version = "0.1.0"
 dependencies = [
  "eframe",
- "egui_demo_lib",
  "egui_extras",
  "tracing-subscriber",
 ]
@@ -724,7 +724,7 @@ dependencies = [
 [[package]]
 name = "egui-winit"
 version = "0.22.0"
-source = "git+https://github.com/vvv/egui.git?branch=table-row-col-sense#ca902317ff557f75680badb86bdd61a83adc83a8"
+source = "git+https://github.com/vvv/egui?branch=table-row-select-and-frame#a520c38b229c0cc4940b47a3d6dd47ead0dc9613"
 dependencies = [
  "accesskit_winit",
  "arboard",
@@ -738,21 +738,9 @@ dependencies = [
 ]
 
 [[package]]
-name = "egui_demo_lib"
-version = "0.22.0"
-source = "git+https://github.com/vvv/egui.git?branch=table-row-col-sense#ca902317ff557f75680badb86bdd61a83adc83a8"
-dependencies = [
- "egui",
- "egui_extras",
- "enum-map",
- "log",
- "unicode_names2",
-]
-
-[[package]]
 name = "egui_extras"
 version = "0.22.0"
-source = "git+https://github.com/vvv/egui.git?branch=table-row-col-sense#ca902317ff557f75680badb86bdd61a83adc83a8"
+source = "git+https://github.com/vvv/egui?branch=table-row-select-and-frame#a520c38b229c0cc4940b47a3d6dd47ead0dc9613"
 dependencies = [
  "egui",
  "serde",
@@ -761,7 +749,7 @@ dependencies = [
 [[package]]
 name = "egui_glow"
 version = "0.22.0"
-source = "git+https://github.com/vvv/egui.git?branch=table-row-col-sense#ca902317ff557f75680badb86bdd61a83adc83a8"
+source = "git+https://github.com/vvv/egui?branch=table-row-select-and-frame#a520c38b229c0cc4940b47a3d6dd47ead0dc9613"
 dependencies = [
  "bytemuck",
  "egui",
@@ -775,30 +763,9 @@ dependencies = [
 [[package]]
 name = "emath"
 version = "0.22.0"
-source = "git+https://github.com/vvv/egui.git?branch=table-row-col-sense#ca902317ff557f75680badb86bdd61a83adc83a8"
+source = "git+https://github.com/vvv/egui?branch=table-row-select-and-frame#a520c38b229c0cc4940b47a3d6dd47ead0dc9613"
 dependencies = [
  "bytemuck",
-]
-
-[[package]]
-name = "enum-map"
-version = "2.5.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "988f0d17a0fa38291e5f41f71ea8d46a5d5497b9054d5a759fae2cbb819f2356"
-dependencies = [
- "enum-map-derive",
- "serde",
-]
-
-[[package]]
-name = "enum-map-derive"
-version = "0.11.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "2a4da76b3b6116d758c7ba93f7ec6a35d2e2cf24feda76c6e38a375f4d5c59f2"
-dependencies = [
- "proc-macro2",
- "quote",
- "syn 1.0.109",
 ]
 
 [[package]]
@@ -825,7 +792,7 @@ dependencies = [
 [[package]]
 name = "epaint"
 version = "0.22.0"
-source = "git+https://github.com/vvv/egui.git?branch=table-row-col-sense#ca902317ff557f75680badb86bdd61a83adc83a8"
+source = "git+https://github.com/vvv/egui?branch=table-row-select-and-frame#a520c38b229c0cc4940b47a3d6dd47ead0dc9613"
 dependencies = [
  "ab_glyph",
  "ahash",
@@ -2205,12 +2172,6 @@ checksum = "5c5713f0fc4b5db668a2ac63cdb7bb4469d8c9fed047b1d0292cc7b0ce2ba921"
 dependencies = [
  "tinyvec",
 ]
-
-[[package]]
-name = "unicode_names2"
-version = "0.6.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "446c96c6dd42604779487f0a981060717156648c1706aa1f464677f03c6cc059"
 
 [[package]]
 name = "url"
