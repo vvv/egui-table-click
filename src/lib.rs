@@ -49,7 +49,7 @@ impl eframe::App for HelloApp {
 
 impl HelloApp {
     fn table_ui(&mut self, ui: &mut egui::Ui) {
-        use egui::{Color32, Label, RichText, Sense};
+        use egui::{Color32, Label, RichText};
         use egui_extras::{Column, TableBuilder};
 
         let row_height = ui.text_style_height(&egui::TextStyle::Body);
@@ -73,7 +73,7 @@ impl HelloApp {
             .body(|body| {
                 body.rows(row_height, self.num_rows, |row_idx, mut row| {
                     // Add `_Row` cell.
-                    let (_rect, response) = row.col_sense(Sense::click(), |ui| {
+                    let (_rect, response) = row.col(|ui| {
                         let text = RichText::new(row_idx.to_string());
                         let text = if self.selected_row == Some(row_idx) {
                             text.background_color(Color32::LIGHT_BLUE)
@@ -87,7 +87,7 @@ impl HelloApp {
                     }
 
                     // Add `Key` cell.
-                    let (_rect, response) = row.col_sense(Sense::click(), |ui| {
+                    let (_rect, response) = row.col(|ui| {
                         let text = RichText::new("Thousands of rows of even height");
                         let text = if self.selected_row == Some(row_idx) {
                             text.background_color(Color32::LIGHT_BLUE)
@@ -101,7 +101,7 @@ impl HelloApp {
                     }
 
                     // Add `Value` cell.
-                    let (_rect, response) = row.col_sense(Sense::click(), |ui| {
+                    let (_rect, response) = row.col(|ui| {
                         let text = RichText::new(format!("Row {row_idx} has some long text that you may want to clip, or it will take up too much horizontal space"));
                         let text = if self.selected_row == Some(row_idx) {
                             text.background_color(Color32::LIGHT_BLUE)
