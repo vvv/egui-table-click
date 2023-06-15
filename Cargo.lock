@@ -689,6 +689,7 @@ dependencies = [
  "objc",
  "percent-encoding",
  "raw-window-handle",
+ "static_assertions",
  "thiserror",
  "wasm-bindgen",
  "wasm-bindgen-futures",
