@@ -667,6 +667,7 @@ checksum = "9ea835d29036a4087793836fa931b08837ad5e957da9e23886b29586fb9b6650"
 [[package]]
 name = "ecolor"
 version = "0.22.0"
+source = "git+https://github.com/vvv/egui?branch=table-row-framing#9c26889cf865b6f483ccb130767a6efd55a9ae09"
 dependencies = [
  "bytemuck",
 ]
@@ -674,6 +675,7 @@ dependencies = [
 [[package]]
 name = "eframe"
 version = "0.22.0"
+source = "git+https://github.com/vvv/egui?branch=table-row-framing#9c26889cf865b6f483ccb130767a6efd55a9ae09"
 dependencies = [
  "bytemuck",
  "cocoa",
@@ -701,6 +703,7 @@ dependencies = [
 [[package]]
 name = "egui"
 version = "0.22.0"
+source = "git+https://github.com/vvv/egui?branch=table-row-framing#9c26889cf865b6f483ccb130767a6efd55a9ae09"
 dependencies = [
  "accesskit",
  "ahash",
@@ -721,6 +724,7 @@ dependencies = [
 [[package]]
 name = "egui-winit"
 version = "0.22.0"
+source = "git+https://github.com/vvv/egui?branch=table-row-framing#9c26889cf865b6f483ccb130767a6efd55a9ae09"
 dependencies = [
  "accesskit_winit",
  "arboard",
@@ -736,6 +740,7 @@ dependencies = [
 [[package]]
 name = "egui_extras"
 version = "0.22.0"
+source = "git+https://github.com/vvv/egui?branch=table-row-framing#9c26889cf865b6f483ccb130767a6efd55a9ae09"
 dependencies = [
  "egui",
  "serde",
@@ -744,6 +749,7 @@ dependencies = [
 [[package]]
 name = "egui_glow"
 version = "0.22.0"
+source = "git+https://github.com/vvv/egui?branch=table-row-framing#9c26889cf865b6f483ccb130767a6efd55a9ae09"
 dependencies = [
  "bytemuck",
  "egui",
@@ -757,6 +763,7 @@ dependencies = [
 [[package]]
 name = "emath"
 version = "0.22.0"
+source = "git+https://github.com/vvv/egui?branch=table-row-framing#9c26889cf865b6f483ccb130767a6efd55a9ae09"
 dependencies = [
  "bytemuck",
 ]
@@ -785,6 +792,7 @@ dependencies = [
 [[package]]
 name = "epaint"
 version = "0.22.0"
+source = "git+https://github.com/vvv/egui?branch=table-row-framing#9c26889cf865b6f483ccb130767a6efd55a9ae09"
 dependencies = [
  "ab_glyph",
  "ahash",

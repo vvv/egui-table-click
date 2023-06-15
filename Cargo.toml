@@ -8,6 +8,6 @@ publish = false
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-eframe = { path = "../../src/egui/crates/eframe" }
-egui_extras = { path = "../../src/egui/crates/egui_extras" }
+eframe = { git = "https://github.com/vvv/egui", branch = "table-row-framing", package = "eframe" }
+egui_extras = { git = "https://github.com/vvv/egui", branch = "table-row-framing", package = "egui_extras" }
 tracing-subscriber = "0.3"

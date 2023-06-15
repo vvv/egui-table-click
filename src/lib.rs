@@ -1,25 +1,7 @@
 use eframe::egui;
 
 #[derive(Debug)]
-pub struct HelloApp {
-    /// Total number of rows in the table.
-    num_rows: usize,
-    /// Index of the selected row, if any.
-    selected_row: Option<usize>,
-}
-
-impl HelloApp {
-    pub fn new(_cc: &eframe::CreationContext<'_>) -> Self {
-        // TODO: Load previous app state; see
-        // <https://github.com/emilk/eframe_template/blob/4f613f5d6266f0f0888544df4555e6bc77a5d079/src/app.rs#L29-L33> and
-        // <https://github.com/emilk/eframe_template/blob/4f613f5d6266f0f0888544df4555e6bc77a5d079/src/app.rs#L40-L43>.
-
-        Self {
-            num_rows: 10_000,
-            selected_row: None,
-        }
-    }
-}
+pub struct HelloApp;
 
 impl eframe::App for HelloApp {
     fn update(&mut self, ctx: &egui::Context, frame: &mut eframe::Frame) {
@@ -32,14 +14,7 @@ impl eframe::App for HelloApp {
         // <https://github.com/emilk/eframe_template/blob/4f613f5d6266f0f0888544df4555e6bc77a5d079/src/app.rs#L55-L65>
 
         egui::CentralPanel::default().show(ctx, |ui| {
-            ui.horizontal_wrapped(|ui| {
-                egui::widgets::global_dark_light_mode_switch(ui);
-                ui.separator();
-                ui.heading(self.selected_row.map_or_else(
-                    || "Click on any row to select it".to_owned(),
-                    |row_idx| format!("Selected row: {row_idx}"),
-                ));
-            });
+            egui::widgets::global_dark_light_mode_switch(ui);
             egui::warn_if_debug_build(ui);
 
             ui.separator();
@@ -75,7 +50,7 @@ impl HelloApp {
                 });
             })
             .body(|body| {
-                body.rows(row_height, self.num_rows, |row_idx, mut row| {
+                body.rows(row_height, 10_000, |row_idx, mut row| {
                     row.col(|ui| {
                         ui.add(Label::new(row_idx.to_string()).wrap(false));
                     });
