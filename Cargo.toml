@@ -9,6 +9,5 @@ publish = false
 
 [dependencies]
 eframe = { path = "../../src/egui/crates/eframe" }
-egui_demo_lib = { path = "../../src/egui/crates/egui_demo_lib" }
 egui_extras = { path = "../../src/egui/crates/egui_extras" }
 tracing-subscriber = "0.3"
