@@ -1,7 +1,9 @@
 use eframe::egui;
 
-#[derive(Debug)]
-pub struct HelloApp;
+#[derive(Debug, Default)]
+pub struct HelloApp {
+    selected_row: Option<usize>,
+}
 
 impl eframe::App for HelloApp {
     fn update(&mut self, ctx: &egui::Context, frame: &mut eframe::Frame) {
@@ -16,6 +18,10 @@ impl eframe::App for HelloApp {
         egui::CentralPanel::default().show(ctx, |ui| {
             egui::widgets::global_dark_light_mode_switch(ui);
             egui::warn_if_debug_build(ui);
+            ui.heading(self.selected_row.map_or_else(
+                || "Click any row to select it".to_owned(),
+                |row_idx| format!("Selected row: {row_idx}"),
+            ));
 
             ui.separator();
 
@@ -52,6 +58,7 @@ impl HelloApp {
                 });
             })
             .body(|body| {
+                self.selected_row = body.selected_row();
                 body.rows(row_height, 10_000, |row_idx, mut row| {
                     row.col(|ui| {
                         ui.add(Label::new(row_idx.to_string()).wrap(false));
