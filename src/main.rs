@@ -6,6 +6,12 @@ fn main() -> eframe::Result<()> {
     eframe::run_native(
         "egui-table-row-select-and-frame",
         eframe::NativeOptions::default(),
-        Box::new(|_cc| Box::<egui_table_click::HelloApp>::default()),
+        Box::new(|cc| {
+            let app: egui_table_click::HelloApp = cc
+                .storage
+                .and_then(|storage| eframe::get_value(storage, eframe::APP_KEY))
+                .unwrap_or_default();
+            Box::new(app)
+        }),
     )
 }

@@ -1,6 +1,7 @@
 use eframe::egui;
+use serde::{Deserialize, Serialize};
 
-#[derive(Debug, Default)]
+#[derive(Debug, Default, Serialize, Deserialize)]
 pub struct HelloApp {
     selected_row: Option<usize>,
 }
